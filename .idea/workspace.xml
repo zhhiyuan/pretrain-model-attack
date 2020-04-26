@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="95608757-0457-4bf5-b778-1c0bb0407993" name="Default Changelist" comment="" />
+    <list default="true" id="95608757-0457-4bf5-b778-1c0bb0407993" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/attack/PGDAttack.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/attack/PixelAttack.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/attack/differential_evolution.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/attack/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/log.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/basic_module.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/basic_module.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/mobilenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/mobilenet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/resnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/resnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/shufflenet_v2.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/shufflenet_v2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/squeezenet.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/squeezenet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/vgg.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/vgg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/test_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/test_model.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,11 +30,17 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="5b6aad2b-ddeb-4e93-ae17-e2657f73efec">
+    <option name="files">
+      <option value="main.ipynb" />
+    </option>
   </component>
   <component name="ProjectId" id="1b2B8DBoVBCmhO6QDT3L4Ni3B1U" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -27,7 +52,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/data" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/attack" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -38,14 +63,38 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\document\python code\DeepLearning\pretrain model attack\models" />
       <recent name="D:\document\python code\DeepLearning\pretrain model attack" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\document\python code\DeepLearning\pretrain model attack\attack" />
       <recent name="D:\document\python code\DeepLearning\pretrain model attack\data" />
       <recent name="D:\document\python code\DeepLearning\pretrain model attack\models" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pretrain model attack" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="pretrain model attack" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -70,6 +119,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
         <item itemvalue="Python.test_model" />
       </list>
     </recent_temporary>
@@ -85,7 +135,8 @@
       <option name="presentableId" value="Default" />
       <updated>1587820146027</updated>
       <workItem from="1587820147334" duration="362000" />
-      <workItem from="1587869337355" duration="5446000" />
+      <workItem from="1587869337355" duration="16450000" />
+      <workItem from="1587890248466" duration="236000" />
     </task>
     <servers />
   </component>
@@ -93,42 +144,46 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="499" y="181" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587888241633">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="499" y="181" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.864@0.0.1536.864" timestamp="1587888241633" />
     <state x="542" y="216" key="FileChooserDialogImpl" timestamp="1587871525076">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="542" y="216" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1587871525076" />
-    <state width="1493" height="281" key="GridCell.Tab.0.bottom" timestamp="1587877252095">
+    <state width="1493" height="327" key="GridCell.Tab.0.bottom" timestamp="1587890147135">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="281" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587877252095" />
-    <state width="1493" height="281" key="GridCell.Tab.0.center" timestamp="1587877252095">
+    <state width="1493" height="327" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587890147135" />
+    <state width="1493" height="327" key="GridCell.Tab.0.center" timestamp="1587890147135">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="281" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1587877252095" />
-    <state width="1493" height="281" key="GridCell.Tab.0.left" timestamp="1587877252095">
+    <state width="1493" height="327" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1587890147135" />
+    <state width="1493" height="327" key="GridCell.Tab.0.left" timestamp="1587890147135">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="281" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1587877252095" />
-    <state width="1493" height="281" key="GridCell.Tab.0.right" timestamp="1587877252095">
+    <state width="1493" height="327" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1587890147135" />
+    <state width="1493" height="327" key="GridCell.Tab.0.right" timestamp="1587890147135">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="281" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1587877252095" />
-    <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1587876466251">
+    <state width="1493" height="327" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1587890147135" />
+    <state width="1493" height="327" key="GridCell.Tab.1.bottom" timestamp="1587890147136">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587876466251" />
-    <state width="1493" height="277" key="GridCell.Tab.1.center" timestamp="1587876466251">
+    <state width="1493" height="327" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587890147136" />
+    <state width="1493" height="327" key="GridCell.Tab.1.center" timestamp="1587890147135">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1587876466251" />
-    <state width="1493" height="277" key="GridCell.Tab.1.left" timestamp="1587876466251">
+    <state width="1493" height="327" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1587890147135" />
+    <state width="1493" height="327" key="GridCell.Tab.1.left" timestamp="1587890147135">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1587876466251" />
-    <state width="1493" height="277" key="GridCell.Tab.1.right" timestamp="1587876466251">
+    <state width="1493" height="327" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1587890147135" />
+    <state width="1493" height="327" key="GridCell.Tab.1.right" timestamp="1587890147136">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1587876466251" />
+    <state width="1493" height="327" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1587890147136" />
     <state x="544" y="55" key="SettingsEditor" timestamp="1587871530734">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -138,14 +193,15 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://E:/anaconda/envs/pytorch_v1.1cu9/Lib/site-packages/torchvision/models/vgg.py</url>
-          <line>44</line>
-          <option name="timeStamp" value="2" />
+          <url>file://$PROJECT_DIR$/utils/test_model.py</url>
+          <line>40</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pretrain_model_attack$test_model.coverage" NAME="test_model Coverage Results" MODIFIED="1587877252087" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/pretrain_model_attack$test_model.coverage" NAME="test_model Coverage Results" MODIFIED="1587886606335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/pretrain_model_attack$main.coverage" NAME="main Coverage Results" MODIFIED="1587889151615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

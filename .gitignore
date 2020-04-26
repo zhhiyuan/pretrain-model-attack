@@ -141,3 +141,4 @@ data/cifar/cifar-10-batches-py/data_batch_5
 data/cifar/cifar-10-batches-py/readme.html
 data/cifar/cifar-10-batches-py/test_batch
 data/cifar/cifar-10-python.tar.gz
+*.pth

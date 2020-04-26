@@ -1,5 +1,5 @@
 #用以测试模型是否能够跑通
-from models import VGG11,VGG13,VGG16,VGG19,ShuffleNetV2,ResNet18,ResNet34,ResNet50,MobileNetV2
+from models import VGG11,VGG13,VGG16,VGG19,ShuffleNetV2,ResNet18,ResNet34,ResNet50,MobileNetV2,SqueezeNet1_0,SqueezeNet1_1
 
 import os
 from torch import nn
@@ -9,7 +9,7 @@ from torch.utils.data import DataLoader
 DOWNLOAD_CIFAR10 = False
 
 #1.读取模型
-model = MobileNetV2()
+model = SqueezeNet1_0()
 
 # 2.定义损失函数和优化器
 criterion = nn.CrossEntropyLoss()

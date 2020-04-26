@@ -1,4 +1,5 @@
 from torchvision.models import resnet18,resnet34,resnet50
+from torch import nn
 
 from models.basic_module import BasicModule
 
@@ -9,6 +10,7 @@ class ResNet18(BasicModule):
 
         self.model = resnet18(pretrained=True)
         self.model.num_classes = 10
+        self.model.fc = nn.Linear(512 , self.model.num_classes)
 
     def forward(self,input):
         return self.model(input)
@@ -21,6 +23,7 @@ class ResNet34(BasicModule):
 
         self.model = resnet34(pretrained=True)
         self.model.num_classes = 10
+        self.model.fc = nn.Linear(512, self.model.num_classes)
 
     def forward(self, input):
         return self.model(input)
@@ -32,6 +35,7 @@ class ResNet50(BasicModule):
 
         self.model = resnet50(pretrained=True)
         self.model.num_classes = 10
+        self.model.fc = nn.Linear(512*4, self.model.num_classes)
 
     def forward(self, input):
         return self.model(input)
