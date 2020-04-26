@@ -1,6 +1,6 @@
 # pretrain-model-attack
- adversarial attack using torchvision pretrained model on ciafr10
-使用torchvision的预训练模型进行生成对抗攻击，数据集为cifar10
+ adversarial attack using torchvision pretrained model on imagenet
+使用torchvision的预训练模型进行生成对抗攻击，数据集为imagenet
 
 ### 攻击方法(attack mode)
 

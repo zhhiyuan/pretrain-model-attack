@@ -9,8 +9,6 @@ class ShuffleNetV2(BasicModule):
 
         self.model_name = 'ShuffleNetV2'
         self.model = shufflenet_v2_x1_0(pretrained=True)
-        self.model.num_classes = 10
-        self.model.fc = nn.Linear(1024, self.model.num_classes)
 
     def forward(self,input):
         return self.model(input)

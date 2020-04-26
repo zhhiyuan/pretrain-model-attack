@@ -13,7 +13,7 @@ import models
 from attack.PGDAttack import LinfPGDAttack
 from attack.PixelAttack import attack_all
 from config import Config
-DOWNLOAD_CIFAR10 = False #是否下载数据集
+DOWNLOAD_ImageNet = False #是否下载数据集
 
 
 
@@ -25,7 +25,7 @@ def train():
     #1.加载配置
     opt = Config()
     opt._parese()
-    global DOWNLOAD_CIFAR10
+    global DOWNLOAD_ImageNet
 
     #1a.加载模型
     model = getattr(models,opt.model)()
@@ -39,8 +39,8 @@ def train():
 
 
     #3.加载数据
-    if not (os.path.exists('./data/cifar/')) or not os.listdir('./data/cifar/'):
-        DOWNLOAD_CIFAR10=True
+    if not (os.path.exists('./data/ImageNet/')) or not os.listdir('./data/ImageNet/'):
+        DOWNLOAD_ImageNet=True
 
     transform = tv.transforms.Compose([
         tv.transforms.ToTensor(),
@@ -48,11 +48,11 @@ def train():
         # https://cloud.tencent.com/developer/ask/153881
         tv.transforms.Normalize(mean=opt.MEAN,std= opt.STD)
     ])
-    train_data = tv.datasets.CIFAR10(
-        root='./data/cifar/',
+    train_data = tv.datasets.ImageNet(
+        root='./data/ImageNet/',
         train=True,
         transform=transform,
-        download=DOWNLOAD_CIFAR10
+        download=DOWNLOAD_ImageNet
     )
 
 
@@ -87,9 +87,9 @@ def test_acc():
     # 1. 加载配置
     opt = Config()
     opt._parese()
-    global DOWNLOAD_CIFAR10
-    if not (os.path.exists('./data/cifar/')) or not os.listdir('./data/cifar/'):
-        DOWNLOAD_CIFAR10=True
+    global DOWNLOAD_ImageNet
+    if not (os.path.exists('./data/ImageNet/')) or not os.listdir('./data/ImageNet/'):
+        DOWNLOAD_ImageNet10=True
 
     # 1a.加载模型
     model = getattr(models, opt.model)()
@@ -101,16 +101,16 @@ def test_acc():
     # 2.加载数据
     transform = tv.transforms.Compose([
         tv.transforms.ToTensor(),
-        # cifar10得出的较好的值，具体过程参考
+        # ImageNet得出的较好的值，具体过程参考
         # https://cloud.tencent.com/developer/ask/153881
         tv.transforms.Normalize(mean=opt.MEAN,std= opt.STD)
     ])
 
-    test_data = tv.datasets.CIFAR10(
-        root='./data/cifar/',
+    test_data = tv.datasets.ImageNet(
+        root='./data/ImageNet/',
         train=False,
         transform=transform,
-        download=DOWNLOAD_CIFAR10
+        download=DOWNLOAD_ImageNet
     )
 
     test_loader = DataLoader(test_data, batch_size=opt.test_num, shuffle=True, num_workers=8)
@@ -134,9 +134,9 @@ def attack_model_pixel():
     # 1.加载配置
     opt = Config()
     opt._parese()
-    global DOWNLOAD_CIFAR10
-    if not (os.path.exists('./data/cifar/')) or not os.listdir('./data/cifar/'):
-        DOWNLOAD_CIFAR10=True
+    global DOWNLOAD_ImageNet
+    if not (os.path.exists('./data/ImageNet/')) or not os.listdir('./data/ImageNet/'):
+        DOWNLOAD_ImageNet=True
 
     # 1a.加载模型
     model = getattr(models, opt.model)()
@@ -151,18 +151,18 @@ def attack_model_pixel():
            tv.transforms.Normalize(opt.MEAN, opt.STD)
        ])
 
-    test_data = tv.datasets.CIFAR10(
-        root='./data/cifar/',
+    test_data = tv.datasets.ImageNet(
+        root='./data/ImageNet/',
         train=False,
         transform=transform,
-        download=DOWNLOAD_CIFAR10
+        download=DOWNLOAD_ImageNet
     )
 
     test_loader = DataLoader(test_data, batch_size=1, shuffle=True)
 
 
 
-    success_rate = attack_all(model,test_loader,pixels=1,targeted=False,maxiter=400,popsize=400,verbose=False,device=opt.device,sample=opt.attack_num)
+    success_rate = attack_all(model,test_loader,pixels=3,targeted=False,maxiter=100,popsize=400,verbose=False,device=opt.device,sample=opt.test_num)
     accuracy = test_acc()
     accuracy_after = accuracy*(1-success_rate)
     string = 'pixel , {} , {} , {} , {} ,  {}\n'.format(opt.model_path,accuracy,accuracy_after,success_rate, strftime('%m_%d_%H_%M_%S'))
@@ -178,9 +178,9 @@ def attack_model_PGD():
     # 1.加载配置
     opt = Config()
     opt._parese()
-    global DOWNLOAD_CIFAR10
-    if not (os.path.exists('./data/cifar/')) or not os.listdir('./data/cifar/'):
-        DOWNLOAD_CIFAR10=True
+    global DOWNLOAD_ImageNet
+    if not (os.path.exists('./data/ImageNet/')) or not os.listdir('./data/ImageNet/'):
+        DOWNLOAD_ImageNet=True
 
     # 1a.加载模型
     model = getattr(models, opt.model)()
@@ -195,11 +195,11 @@ def attack_model_PGD():
            tv.transforms.Normalize(opt.MEAN, opt.STD)
        ])
 
-    test_data = tv.datasets.CIFAR10(
-        root='./data/cifar/',
+    test_data = tv.datasets.ImageNet(
+        root='./data/ImageNet/',
         train=False,
         transform=transform,
-        download=DOWNLOAD_CIFAR10
+        download=DOWNLOAD_ImageNet
     )
 
     test_loader = DataLoader(test_data, batch_size=1, shuffle=True)
@@ -207,7 +207,7 @@ def attack_model_PGD():
     success_num = 0
     attack = LinfPGDAttack(model)
     for ii, (data, label) in enumerate(test_loader):
-        if ii>=opt.attack_num:
+        if ii>=opt.test_num:
             break
         data,label = data.to(opt.device),label.to(opt.device)
         test_score = model(data)

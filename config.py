@@ -9,11 +9,11 @@ class Config:
     '''
     lr = 0.0005 #学习率
     use_gpu = True  #是否使用gpu
-    MEAN=(0.4914, 0.4822, 0.4465)
-    STD=(0.2023, 0.1994, 0.2010)#均值和方差
+    MEAN=(0.485, 0.456, 0.406)
+    STD=(0.229, 0.224, 0.225)#均值和方差
     train_epoch = 1  # 将数据集训练多少次
     save_every = 1  # 每训练多少轮保存一次模型
-    # cifar10得出的较好的值，具体过程参考
+    # imagenet得出的较好的值，具体过程参考
     # https://cloud.tencent.com/developer/ask/153881
 
     test_num = 2000  # 选择攻击和测试的样本数量
