@@ -14,7 +14,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1b2B8DBoVBCmhO6QDT3L4Ni3B1U" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -23,18 +27,52 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/models" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/data" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\document\python code\DeepLearning\pretrain model attack" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\document\python code\DeepLearning\pretrain model attack\data" />
       <recent name="D:\document\python code\DeepLearning\pretrain model attack\models" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="test_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="pretrain model attack" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/utils" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/utils/test_model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test_model" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -47,11 +85,67 @@
       <option name="presentableId" value="Default" />
       <updated>1587820146027</updated>
       <workItem from="1587820147334" duration="362000" />
-      <workItem from="1587869337355" duration="1814000" />
+      <workItem from="1587869337355" duration="5105000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="542" y="216" key="FileChooserDialogImpl" timestamp="1587871525076">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="542" y="216" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1587871525076" />
+    <state width="1493" height="281" key="GridCell.Tab.0.bottom" timestamp="1587876597814">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="281" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587876597814" />
+    <state width="1493" height="281" key="GridCell.Tab.0.center" timestamp="1587876597813">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="281" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1587876597813" />
+    <state width="1493" height="281" key="GridCell.Tab.0.left" timestamp="1587876597813">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="281" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1587876597813" />
+    <state width="1493" height="281" key="GridCell.Tab.0.right" timestamp="1587876597814">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="281" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1587876597814" />
+    <state width="1493" height="277" key="GridCell.Tab.1.bottom" timestamp="1587876466251">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.1.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587876466251" />
+    <state width="1493" height="277" key="GridCell.Tab.1.center" timestamp="1587876466251">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.1.center/0.0.1536.864@0.0.1536.864" timestamp="1587876466251" />
+    <state width="1493" height="277" key="GridCell.Tab.1.left" timestamp="1587876466251">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.1.left/0.0.1536.864@0.0.1536.864" timestamp="1587876466251" />
+    <state width="1493" height="277" key="GridCell.Tab.1.right" timestamp="1587876466251">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="277" key="GridCell.Tab.1.right/0.0.1536.864@0.0.1536.864" timestamp="1587876466251" />
+    <state x="544" y="55" key="SettingsEditor" timestamp="1587871530734">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="544" y="55" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1587871530734" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://E:/anaconda/envs/pytorch_v1.1cu9/Lib/site-packages/torchvision/models/vgg.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/pretrain_model_attack$test_model.coverage" NAME="test_model Coverage Results" MODIFIED="1587876597807" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
   </component>
 </project>
