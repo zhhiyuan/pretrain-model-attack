@@ -1,7 +1,7 @@
 import torch as t
 class Config:
-    model_path = 'ShuffleNetV2_ep1.pth'# 预训练模型，None表示重新训练
-    model = 'ShuffleNetV2'#加载的模型，模型名必须与models/__init__.py中的名字一致
+    model_path = None# 预训练模型，None表示重新训练
+    model = 'SqueezeNet1_0'#加载的模型，模型名必须与models/__init__.py中的名字一致
     '''
     ShuffleNetV2,MobileNetV2,SqueezeNet1_0,SqueezeNet1_1
     VGG11,VGG13,VGG16,VGG19
@@ -16,12 +16,13 @@ class Config:
     # imagenet得出的较好的值，具体过程参考
     # https://cloud.tencent.com/developer/ask/153881
 
-    test_num = 2000  # 选择攻击和测试的样本数量
+    test_num = 16  # 选择攻击和测试的样本数量
 
 
     batch_size = 128  # 每次喂入多少数据
 
     print_freq = 500  # 每训练多少批次就打印一次
+    num_workers = 8 #加载数据集的线程数
 
     def _parese(self):
         self.device = t.device('cuda') if self.use_gpu else t.device('cpu')

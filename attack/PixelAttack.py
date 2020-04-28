@@ -1,5 +1,5 @@
 import os
-
+import tqdm
 import numpy as np
 
 import argparse
@@ -115,12 +115,15 @@ def attack_all(net, loader, pixels=1, targeted=False, maxiter=75, popsize=400, v
         correct = 0
         success = 0
 
-        for batch_idx, (input, target) in enumerate(loader):
+        for batch_idx, (input, target) in tqdm.tqdm(enumerate(loader)):
 
                 img_var = Variable(input, volatile=True).to(device)
                 prior_probs = F.softmax(net(img_var))
                 _, indices = torch.max(prior_probs, 1)
 
+                #如果达到攻击总数则退出
+                if batch_idx>=sample:
+                        break
                 #模型原本就预测错误则跳过
                 if target[0] != indices.data.cpu()[0]:
                         continue
@@ -149,36 +152,10 @@ def attack_all(net, loader, pixels=1, targeted=False, maxiter=75, popsize=400, v
                                 print ("success rate: %.4f (%d/%d) [(x,y) = (%d,%d) and (R,G,B)=(%d,%d,%d)]"%(
                                         success_rate, success, correct, x[0],x[1],x[2],x[3],x[4]))
                 
-                if batch_idx>=sample:
-                        break
+
         return success_rate
 
-def main():
 
-        print("==> Loading data and model...")
-        tranfrom_test = transforms.Compose([
-                transforms.ToTensor(),
-                transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
-                ])
-        test_set = torchvision.datasets.CIFAR10(root='./data', train=False, download=True, transform=tranfrom_test)
-        testloader = torch.utils.data.DataLoader(test_set, batch_size=1, shuffle=True, num_workers=2)
-
-        class_names = ['plane', 'car', 'bird', 'cat', 'deer', 'dog', 'frog', 'horse', 'ship', 'truck']
-        assert os.path.isdir('checkpoint'), 'Error: no checkpoint directory found!'
-        checkpoint = torch.load('./checkpoint/%s.t7'%args.model)
-
-        # net = ShuffleNetV2(1)
-        net = VGG("VGG19")
-        # net = checkpoint['net']
-        net = torch.nn.DataParallel(net)
-        net.load_state_dict(checkpoint['net'])
-        net.cuda()
-        cudnn.benchmark = True
-
-        print ("==> Starting attck...")
-
-        results = attack_all(net, testloader, pixels=args.pixels, targeted=args.targeted, maxiter=args.maxiter, popsize=args.popsize, verbose=args.verbose)
-        print ("Final success rate: %.4f")%results
 
 
 if __name__ == '__main__':

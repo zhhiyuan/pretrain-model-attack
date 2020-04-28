@@ -43,25 +43,24 @@ def train():
         DOWNLOAD_ImageNet=True
 
     transform = tv.transforms.Compose([
+        #要先完成所有操作，然后totensor，normalize
+        tv.transforms.Resize(256),
+        tv.transforms.CenterCrop(224),
         tv.transforms.ToTensor(),
-        # cifar10得出的较好的值，具体过程参考
-        # https://cloud.tencent.com/developer/ask/153881
-        tv.transforms.Normalize(mean=opt.MEAN,std= opt.STD)
+        tv.transforms.Normalize(mean=opt.MEAN, std=opt.STD)
     ])
     train_data = tv.datasets.ImageNet(
         root='./data/ImageNet/',
-        train=True,
+        split='val',
         transform=transform,
         download=DOWNLOAD_ImageNet
     )
-
-
 
     train_loader = DataLoader(
         dataset=train_data,
         batch_size=opt.batch_size,
         shuffle=True,
-        num_workers=8
+        num_workers=opt.num_workers
                               )
 
     #训练模型
@@ -89,7 +88,7 @@ def test_acc():
     opt._parese()
     global DOWNLOAD_ImageNet
     if not (os.path.exists('./data/ImageNet/')) or not os.listdir('./data/ImageNet/'):
-        DOWNLOAD_ImageNet10=True
+        DOWNLOAD_ImageNet=True
 
     # 1a.加载模型
     model = getattr(models, opt.model)()
@@ -100,27 +99,32 @@ def test_acc():
 
     # 2.加载数据
     transform = tv.transforms.Compose([
+        tv.transforms.Resize(256),
+        tv.transforms.CenterCrop(224),
         tv.transforms.ToTensor(),
-        # ImageNet得出的较好的值，具体过程参考
-        # https://cloud.tencent.com/developer/ask/153881
-        tv.transforms.Normalize(mean=opt.MEAN,std= opt.STD)
+        tv.transforms.Normalize(mean=opt.MEAN, std=opt.STD)
+
     ])
 
     test_data = tv.datasets.ImageNet(
         root='./data/ImageNet/',
-        train=False,
+        split='val',
         transform=transform,
         download=DOWNLOAD_ImageNet
     )
+    #test_data.loader
+    test_loader = DataLoader(test_data, batch_size=1, shuffle=True, num_workers=opt.num_workers)
 
-    test_loader = DataLoader(test_data, batch_size=opt.test_num, shuffle=True, num_workers=8)
+    correct_num = 0
+    for ii, (test_x, test_y) in enumerate(test_loader):
+        if ii >= opt.test_num:
+            break
+        test_x = test_x.to(opt.device)
+        test_score = model(test_x)
+        correct = (t.argmax(test_score.to('cpu'), 1) == test_y).numpy()
+        correct_num = correct_num + correct[0]
 
-    dataiter = iter(test_loader)
-    test_x, test_y = next(dataiter)
-    test_x = test_x.to(opt.device)
-
-    test_score = model(test_x)
-    accuracy = np.mean((t.argmax(test_score.to('cpu'), 1) == test_y).numpy())
+    accuracy = correct_num/opt.test_num
     print('test accuracy:%.2f' % accuracy)
     return accuracy
 
@@ -147,13 +151,15 @@ def attack_model_pixel():
 
     # 2.加载数据
     transform = tv.transforms.Compose([
-           tv.transforms.ToTensor(),
-           tv.transforms.Normalize(opt.MEAN, opt.STD)
-       ])
+        tv.transforms.Resize(256),
+        tv.transforms.CenterCrop(224),
+        tv.transforms.ToTensor(),
+        tv.transforms.Normalize(mean=opt.MEAN,std= opt.STD)
+    ])
 
     test_data = tv.datasets.ImageNet(
         root='./data/ImageNet/',
-        train=False,
+        split='val',
         transform=transform,
         download=DOWNLOAD_ImageNet
     )
@@ -168,7 +174,7 @@ def attack_model_pixel():
     string = 'pixel , {} , {} , {} , {} ,  {}\n'.format(opt.model_path,accuracy,accuracy_after,success_rate, strftime('%m_%d_%H_%M_%S'))
     open('log.csv','a').write(string)
 
-@t.no_grad()
+
 def attack_model_PGD():
     '''
     PGD攻击模型
@@ -191,13 +197,15 @@ def attack_model_PGD():
 
     # 2.加载数据
     transform = tv.transforms.Compose([
-           tv.transforms.ToTensor(),
-           tv.transforms.Normalize(opt.MEAN, opt.STD)
-       ])
+        tv.transforms.Resize(256),
+        tv.transforms.CenterCrop(224),
+        tv.transforms.ToTensor(),
+        tv.transforms.Normalize(mean=opt.MEAN,std= opt.STD)
+    ])
 
     test_data = tv.datasets.ImageNet(
         root='./data/ImageNet/',
-        train=False,
+        split='val',
         transform=transform,
         download=DOWNLOAD_ImageNet
     )
@@ -209,11 +217,11 @@ def attack_model_PGD():
     for ii, (data, label) in enumerate(test_loader):
         if ii>=opt.test_num:
             break
-        data,label = data.to(opt.device),label.to(opt.device)
-        test_score = model(data)
-        if t.argmax(test_score.to('cpu'), 1) == label:
+
+        test_score = model(data.to(opt.device))
+        if t.argmax(test_score.to('cpu'), 1) == label.to('cpu'):
             continue
-        perturb_x =attack.perturb(data,label)
+        perturb_x =attack.perturb(data.numpy(),label)
         test_score = model(t.FloatTensor(perturb_x).to(opt.device))
         if t.argmax(test_score.to('cpu'), 1) != label:
             success_num+=1
@@ -227,5 +235,7 @@ def attack_model_PGD():
 
 if __name__ == '__main__':
     test_acc()
-   #  train()
-   #  test_acc()
+    # attack_model_pixel()
+    # attack_model_PGD()
+    #  train()
+    #  test_acc()
