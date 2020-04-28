@@ -46,7 +46,7 @@ code from [there](https://github.com/DebangLi/one-pixel-attack-pytorch)
 
 - 先训练模型(`main.py`中的train()函数，若有预训练模型，可以跳过)，模型训练完并保存在ckps文件夹后，修改config中model_path为预训练路径
 
-- 实施攻击(`main.py`中attack_model_PGD()或attack_model_pixel()函数)，之后会保存所有内容在`log.txt`文件夹下，保存的内容有
+- 实施攻击(`main.py`中attack_model_PGD()或attack_model_pixel()函数)，之后会保存所有内容在`log.csv`文件夹下，保存的内容有
        
        - 攻击类型
        - 模型名
