@@ -234,7 +234,7 @@ def attack_model_PGD():
     open('log.csv', 'a').write(string)
 
 if __name__ == '__main__':
-    test_acc()
+    attack_model_PGD()
     # attack_model_pixel()
     # attack_model_PGD()
     #  train()

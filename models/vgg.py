@@ -10,17 +10,6 @@ class VGG11(BasicModule):#继承的类可以保存和读取模型
         self.model_name = 'VGG11'
         #获取预训练模型的结构和权重
         self.model = vgg11(pretrained=True)
-        #改模型分类器为十分类
-        self.model.num_classes = 10 #此处需要跳转到源码查看模型是否具有num_classes分类个数的参数
-        self.model.classifier = nn.Sequential(
-            nn.Linear(512 * 7 * 7, 4096),
-            nn.ReLU(True),
-            nn.Dropout(),
-            nn.Linear(4096, 4096),
-            nn.ReLU(True),
-            nn.Dropout(),
-            nn.Linear(4096, self.model.num_classes),
-        )
 
     #前向传播
     def forward(self,input):
@@ -32,17 +21,7 @@ class VGG13(BasicModule):
         self.model_name = 'VGG13'
         #获取预训练模型的结构和权重
         self.model = vgg13(pretrained=True)
-        #改模型分类器为十分类
-        self.model.num_classes = 10#此处需要跳转到源码查看模型
-        self.model.classifier = nn.Sequential(
-            nn.Linear(512 * 7 * 7, 4096),
-            nn.ReLU(True),
-            nn.Dropout(),
-            nn.Linear(4096, 4096),
-            nn.ReLU(True),
-            nn.Dropout(),
-            nn.Linear(4096, self.model.num_classes),
-        )
+
 
     #前向传播
     def forward(self,input):
@@ -55,18 +34,7 @@ class VGG16(BasicModule):
         self.model_name = 'VGG16'
         # 获取预训练模型的结构和权重
         self.model = vgg16(pretrained=True)
-        # 改模型分类器为十分类
-        self.model.num_classes = 10  # 此处需要跳转到源码查看模型
-        # 此处需要跳转到源码查看模型
-        self.model.classifier = nn.Sequential(
-            nn.Linear(512 * 7 * 7, 4096),
-            nn.ReLU(True),
-            nn.Dropout(),
-            nn.Linear(4096, 4096),
-            nn.ReLU(True),
-            nn.Dropout(),
-            nn.Linear(4096, self.model.num_classes),
-        )
+
 
     # 前向传播
     def forward(self, input):
@@ -78,17 +46,7 @@ class VGG19(BasicModule):
         self.model_name = 'VGG19'
         # 获取预训练模型的结构和权重
         self.model = vgg19(pretrained=True)
-        # 改模型分类器为十分类
-        self.model.num_classes = 10  # 此处需要跳转到源码查看模型
-        self.model.classifier = nn.Sequential(
-            nn.Linear(512 * 7 * 7, 4096),
-            nn.ReLU(True),
-            nn.Dropout(),
-            nn.Linear(4096, 4096),
-            nn.ReLU(True),
-            nn.Dropout(),
-            nn.Linear(4096, self.model.num_classes),
-        )
+
 
     # 前向传播
     def forward(self, input):

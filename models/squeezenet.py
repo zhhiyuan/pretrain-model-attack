@@ -16,7 +16,7 @@ class SqueezeNet1_0(BasicModule):
 
 class SqueezeNet1_1(BasicModule):
     def __init__(self):
-        super(SqueezeNet1_1,self)
+        super(SqueezeNet1_1,self).__init__()
 
         self.model_name = 'SqueezeNet1_1'
         self.model = squeezenet1_1(pretrained=True)
